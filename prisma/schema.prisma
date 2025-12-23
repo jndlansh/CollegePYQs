@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+// Branch model - Represents engineering branches (CSE, ECE, etc.)
+model Branch {
+  id       String    @id @default(cuid())
+  name     String    // e.g., "Computer Science Engineering"
+  slug     String    @unique // e.g., "cse"
+  subjects Subject[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("branches")
+}
+
+// Subject model - Subjects taught in different semesters
+model Subject {
+  id             String          @id @default(cuid())
+  name           String          // e.g., "Data Structures"
+  code           String          // e.g., "CS201"
+  semester       Int             // 1-8
+  branchId       String
+  branch         Branch          @relation(fields: [branchId], references: [id], onDelete: Cascade)
+  questionPapers QuestionPaper[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@unique([code, branchId])
+  @@index([branchId, semester])
+  @@map("subjects")
+}
+
+// QuestionPaper model - Individual question papers
+model QuestionPaper {
+  id        String  @id @default(cuid())
+  year      Int     // e.g., 2023
+  fileUrl   String  // Supabase storage path
+  subjectId String
+  subject   Subject @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([subjectId])
+  @@index([year])
+  @@map("question_papers")
+}
