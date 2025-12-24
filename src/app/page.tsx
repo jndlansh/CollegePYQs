@@ -21,24 +21,24 @@ export default function HomePage() {
             <Link
               key={branch.slug}
               href={`/${branch.slug}`}
-              className={`group relative overflow-hidden rounded-2xl ${branch.color} p-8 text-white shadow-lg transition-all duration-300 transform hover:scale-105 ${branch.hoverColor}`}
+              className="group relative overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-800 p-8 shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl border border-gray-200 dark:border-gray-700"
             >
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-900/20 dark:from-white/20 to-transparent" />
               </div>
 
               {/* Content */}
               <div className="relative z-10">
-                <div className="text-4xl font-bold mb-3 uppercase">
+                <div className="text-4xl font-bold mb-3 uppercase text-gray-900 dark:text-gray-100">
                   {branch.slug}
                 </div>
-                <div className="text-sm font-medium opacity-90">
+                <div className="text-sm font-medium text-gray-600 dark:text-gray-400">
                   {branch.name}
                 </div>
                 
                 {/* Arrow Icon */}
-                <div className="absolute bottom-6 right-6 transform transition-transform duration-300 group-hover:translate-x-2">
+                <div className="absolute bottom-6 right-6 transform transition-transform duration-300 group-hover:translate-x-2 text-gray-700 dark:text-gray-300">
                   <svg
                     className="w-6 h-6"
                     fill="none"
@@ -59,7 +59,7 @@ export default function HomePage() {
         </div>
 
         {/* Footer Info */}
-        <div className="mt-16 text-center text-gray-600">
+        <div className="mt-16 text-center text-gray-600 dark:text-gray-400">
           <p className="text-sm">
             Select your branch to browse question papers by semester and subject
           </p>

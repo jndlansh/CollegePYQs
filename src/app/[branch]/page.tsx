@@ -51,23 +51,23 @@ export default async function BranchPage({ params }: BranchPageProps) {
             <Link
               key={semester}
               href={`/${branchSlug}/${semester}`}
-              className={`group relative overflow-hidden rounded-xl ${branch.color} p-8 text-white shadow-md transition-all duration-300 transform hover:scale-105 ${branch.hoverColor}`}
+              className="group relative overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800 p-8 shadow-md transition-all duration-300 transform hover:scale-105 hover:shadow-xl border border-gray-200 dark:border-gray-700"
             >
               {/* Background Pattern */}
               <div className="absolute inset-0 opacity-10">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-900/20 dark:from-white/30 to-transparent" />
               </div>
 
               {/* Content */}
               <div className="relative z-10 text-center">
-                <div className="text-5xl font-bold mb-2">{semester}</div>
-                <div className="text-sm font-medium opacity-90">
+                <div className="text-5xl font-bold mb-2 text-gray-900 dark:text-gray-100">{semester}</div>
+                <div className="text-sm font-medium text-gray-600 dark:text-gray-400">
                   Semester {semester}
                 </div>
               </div>
 
               {/* Hover Arrow */}
-              <div className="absolute bottom-3 right-3 opacity-0 transform translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+              <div className="absolute bottom-3 right-3 opacity-0 transform translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 text-gray-700 dark:text-gray-300">
                 <svg
                   className="w-5 h-5"
                   fill="none"

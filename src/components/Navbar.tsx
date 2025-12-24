@@ -49,7 +49,7 @@ export default function Navbar() {
                         : "hover:bg-gray-200 dark:hover:bg-gray-600"
                     )}
                   >
-                    <div className={`h-2 w-2 rounded-full ${branch.color} mr-2`} />
+                    {/* <div className={`h-2 w-2 rounded-full ${branch.color} mr-2`} /> */}
                     {branch.shortName}
                   </Button>
                 </DropdownMenuTrigger>
