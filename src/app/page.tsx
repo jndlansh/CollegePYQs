@@ -3,14 +3,14 @@ import { BRANCH_CONFIG } from '@/lib/constants'
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <header className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            BTech Question Paper Portal
+          <h1 className="text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+            College of Technology, Pantnagar PYQ Portal
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 dark:text-gray-400">
             Access past question papers across 8 engineering branches
           </p>
         </header>

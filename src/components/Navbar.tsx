@@ -23,13 +23,13 @@ export default function Navbar() {
   const branches = Object.values(BRANCH_CONFIG)
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-white shadow-sm">
+    <nav className="sticky top-0 z-50 w-full border-b bg-white dark:bg-gray-800 shadow-sm dark:border-gray-700">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link 
             href="/" 
-            className="flex items-center gap-2 text-xl font-bold text-gray-900 hover:text-gray-700 transition-all cursor-pointer hover:scale-105"
+            className="flex items-center gap-2 text-xl font-bold text-gray-900 dark:text-gray-100 hover:text-gray-700 dark:hover:text-gray-300 transition-all cursor-pointer hover:scale-105"
           >
             <Home className="h-6 w-6" />
             <span className="hidden sm:inline">BTech Papers</span>
@@ -43,10 +43,10 @@ export default function Navbar() {
                   <Button
                     variant="ghost"
                     className={cn(
-                      "text-sm font-medium bg-gray-100 transition-all cursor-pointer hover:scale-105",
+                      "text-sm font-medium bg-gray-100 dark:bg-gray-700 dark:text-gray-200 transition-all cursor-pointer hover:scale-105",
                       pathname?.startsWith(`/${branch.slug}`) 
-                        ? "bg-gray-100 shadow-sm" 
-                        : "hover:bg-gray-200"
+                        ? "bg-gray-100 dark:bg-gray-600 shadow-sm" 
+                        : "hover:bg-gray-200 dark:hover:bg-gray-600"
                     )}
                   >
                     <div className={`h-2 w-2 rounded-full ${branch.color} mr-2`} />
@@ -95,11 +95,11 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t bg-white">
+        <div className="md:hidden border-t bg-white dark:bg-gray-800 dark:border-gray-700">
           <div className="space-y-1 px-4 pb-3 pt-2">
             {branches.map((branch) => (
               <div key={branch.slug} className="space-y-1">
-                <div className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-gray-900">
+                <div className="flex items-center gap-2 px-3 py-2 text-sm font-semibold text-gray-900 dark:text-gray-100">
                   <div className={`h-2 w-2 rounded-full ${branch.color}`} />
                   {branch.name}
                 </div>
@@ -112,8 +112,8 @@ export default function Navbar() {
                       className={cn(
                         "block px-3 py-2 text-sm rounded-md transition-all cursor-pointer",
                         pathname === `/${branch.slug}/${sem}`
-                          ? "bg-gray-100 text-gray-900 font-medium shadow-sm"
-                          : "text-gray-600 hover:bg-gray-50 hover:text-gray-900 hover:translate-x-1"
+                          ? "bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 font-medium shadow-sm"
+                          : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-gray-100 hover:translate-x-1"
                       )}
                     >
                       Semester {sem}

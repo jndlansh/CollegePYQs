@@ -37,24 +37,24 @@ export default async function SemesterPage({ params }: SemesterPageProps) {
   })
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumb */}
         <nav className="mb-8">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600">
+          <ol className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
             <li>
-              <Link href="/" className="hover:text-gray-900">
+              <Link href="/" className="hover:text-gray-900 dark:hover:text-gray-100">
                 Home
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link href={`/${branchSlug}`} className="hover:text-gray-900">
+              <Link href={`/${branchSlug}`} className="hover:text-gray-900 dark:hover:text-gray-100">
                 {branch.name}
               </Link>
             </li>
             <li>/</li>
-            <li className="font-medium text-gray-900">Semester {semester}</li>
+            <li className="font-medium text-gray-900 dark:text-gray-100">Semester {semester}</li>
           </ol>
         </nav>
 
@@ -63,10 +63,10 @@ export default async function SemesterPage({ params }: SemesterPageProps) {
           <div className={`inline-block px-4 py-2 rounded-lg ${branch.lightColor} ${branch.textColor} text-sm font-semibold mb-4`}>
             {branch.slug.toUpperCase()} - SEM {semester}
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
             Semester {semester} Subjects
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 dark:text-gray-400">
             {subjects.length} subject{subjects.length !== 1 ? 's' : ''} available
           </p>
         </header>
@@ -78,7 +78,7 @@ export default async function SemesterPage({ params }: SemesterPageProps) {
               <Link
                 key={subject.id}
                 href={`/${branchSlug}/${semester}/${subject.code.toLowerCase()}`}
-                className="group bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-gray-300"
+                className="group bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600"
               >
                 <div className="flex items-start justify-between mb-3">
                   <div className={`px-3 py-1 rounded-lg text-xs font-semibold ${branch.lightColor} ${branch.textColor}`}>
@@ -98,10 +98,10 @@ export default async function SemesterPage({ params }: SemesterPageProps) {
                     />
                   </svg>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2 line-clamp-2">
                   {subject.name}
                 </h3>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
                   View question papers
                 </p>
               </Link>
@@ -109,9 +109,9 @@ export default async function SemesterPage({ params }: SemesterPageProps) {
           </div>
         ) : (
           <div className="text-center py-16">
-            <div className="inline-block p-6 bg-gray-100 rounded-full mb-4">
+            <div className="inline-block p-6 bg-gray-100 dark:bg-gray-800 rounded-full mb-4">
               <svg
-                className="w-12 h-12 text-gray-400"
+                className="w-12 h-12 text-gray-400 dark:text-gray-500"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -124,10 +124,10 @@ export default async function SemesterPage({ params }: SemesterPageProps) {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
               No subjects found
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-400">
               Subjects for this semester will be added soon.
             </p>
           </div>

@@ -73,19 +73,19 @@ export default async function SubjectPage({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumb */}
         <nav className="mb-8">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600 flex-wrap">
+          <ol className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400 flex-wrap">
             <li>
-              <Link href="/" className="hover:text-gray-900">
+              <Link href="/" className="hover:text-gray-900 dark:hover:text-gray-100">
                 Home
               </Link>
             </li>
             <li>/</li>
             <li>
-              <Link href={`/${branchSlug}`} className="hover:text-gray-900">
+              <Link href={`/${branchSlug}`} className="hover:text-gray-900 dark:hover:text-gray-100">
                 {branch.name}
               </Link>
             </li>
@@ -93,13 +93,13 @@ export default async function SubjectPage({
             <li>
               <Link
                 href={`/${branchSlug}/${semester}`}
-                className="hover:text-gray-900"
+                className="hover:text-gray-900 dark:hover:text-gray-100"
               >
                 Semester {semester}
               </Link>
             </li>
             <li>/</li>
-            <li className="font-medium text-gray-900">{subject.code}</li>
+            <li className="font-medium text-gray-900 dark:text-gray-100">{subject.code}</li>
           </ol>
         </nav>
 
@@ -110,10 +110,10 @@ export default async function SubjectPage({
           >
             {subject.code}
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
             {subject.name}
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 dark:text-gray-400">
             {subject.questionPapers.length} question paper
             {subject.questionPapers.length !== 1 ? 's' : ''} available
           </p>
@@ -122,14 +122,14 @@ export default async function SubjectPage({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Sidebar - Question Papers List */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-xl shadow-md p-6 sticky top-4">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 sticky top-4">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
                 Question Papers
               </h2>
 
               {/* Search Bar */}
               <div className="mb-4">
-                <Suspense fallback={<div className="h-12 bg-gray-100 rounded-lg animate-pulse" />}>
+                <Suspense fallback={<div className="h-12 bg-gray-100 dark:bg-gray-700 rounded-lg animate-pulse" />}>
                   <SearchBar />
                 </Suspense>
               </div>
@@ -147,7 +147,7 @@ export default async function SubjectPage({
                       className={`block p-4 rounded-lg transition-all ${
                         selectedPaperId === qPaper.id
                           ? `${branch.lightColor} ${branch.textColor} ring-2 ring-offset-2`
-                          : 'bg-gray-50 hover:bg-gray-100'
+                          : 'bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600'
                       }`}
                       scroll={false}
                     >
@@ -175,7 +175,7 @@ export default async function SubjectPage({
                     </Link>
                   ))
                 ) : (
-                  <div className="text-center py-8 text-gray-500">
+                  <div className="text-center py-8 text-gray-500 dark:text-gray-400">
                     <p>No papers found</p>
                     {searchTerm && (
                       <p className="text-sm mt-2">Try a different search term</p>
@@ -189,18 +189,18 @@ export default async function SubjectPage({
           {/* Main Content - PDF Viewer */}
           <div className="lg:col-span-2">
             {selectedPaper && signedUrl ? (
-              <div className="bg-white rounded-xl shadow-md h-[800px]">
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md h-[800px]">
                 <PDFViewer
                   fileUrl={signedUrl}
                   fileName={`${subject.code}_${selectedPaper.year}.pdf`}
                 />
               </div>
             ) : (
-              <div className="bg-white rounded-xl shadow-md p-12 text-center h-[800px] flex items-center justify-center">
+              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-12 text-center h-[800px] flex items-center justify-center">
                 <div>
-                  <div className="inline-block p-6 bg-gray-100 rounded-full mb-4">
+                  <div className="inline-block p-6 bg-gray-100 dark:bg-gray-700 rounded-full mb-4">
                     <svg
-                      className="w-16 h-16 text-gray-400"
+                      className="w-16 h-16 text-gray-400 dark:text-gray-500"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -213,10 +213,10 @@ export default async function SubjectPage({
                       />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
                     Select a Paper to View
                   </h3>
-                  <p className="text-gray-600">
+                  <p className="text-gray-600 dark:text-gray-400">
                     Choose a question paper from the list to view it here
                   </p>
                 </div>

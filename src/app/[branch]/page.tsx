@@ -17,18 +17,18 @@ export default async function BranchPage({ params }: BranchPageProps) {
   const branch = BRANCH_CONFIG[branchSlug as BranchSlug]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumb */}
         <nav className="mb-8">
-          <ol className="flex items-center space-x-2 text-sm text-gray-600">
+          <ol className="flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
             <li>
-              <Link href="/" className="hover:text-gray-900">
+              <Link href="/" className="hover:text-gray-900 dark:hover:text-gray-100">
                 Home
               </Link>
             </li>
             <li>/</li>
-            <li className="font-medium text-gray-900">{branch.name}</li>
+            <li className="font-medium text-gray-900 dark:text-gray-100">{branch.name}</li>
           </ol>
         </nav>
 
@@ -37,10 +37,10 @@ export default async function BranchPage({ params }: BranchPageProps) {
           <div className={`inline-block px-4 py-2 rounded-lg ${branch.lightColor} ${branch.textColor} text-sm font-semibold mb-4`}>
             {branch.slug.toUpperCase()}
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
             {branch.name}
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 dark:text-gray-400">
             Select a semester to view subjects and question papers
           </p>
         </header>
